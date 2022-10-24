@@ -1,7 +1,9 @@
+import React from "react";
 import { useState } from "react";
 
 function PizzaBlock({imageUrl, title, types, sizes, price}){
-
+	const [activeType, setActiveType] = React.useState(0);
+	const [activeSize, setActiveSize] = React.useState(0);
 	const typeNames = ['тонкое', 'традиционное'];
 
 	const [pizzaCount, setPizzaCount] = useState(0);
@@ -22,14 +24,14 @@ function PizzaBlock({imageUrl, title, types, sizes, price}){
 				<ul>
 					{
 						types.map((type) => (
-							<li className="active">{typeNames[type]}</li>
+							<li className={activeType === type ? 'active' : ''} onClick={() => setActiveType(type)}>{typeNames[type]}</li>
 						))
 					}
 				</ul>
 				<ul>
 					{
-						sizes.map((size) => (
-							<li className="active">{size} см.</li>
+						sizes.map((size, index) => (
+							<li className={activeSize === index ? 'active' : ''} onClick={() => setActiveSize(index)}>{size} см.</li>
 						))
 					}
 				</ul>
