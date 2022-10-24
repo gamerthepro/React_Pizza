@@ -124,14 +124,7 @@ function App() {
           <div className="content__items">{
 						pizzasItem.map((obj) => (
 							<PizzaBlock 
-								id={obj.id}
-								imageUrl={obj.imageUrl}
-								title={obj.title} 
-								types={obj.types}
-								sizes={obj.sizes}
-								price={obj.price}
-								category={obj.category}
-								rating={obj.rating}
+								{...obj}
 							/>
 						))}
           </div>
