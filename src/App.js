@@ -20,7 +20,7 @@ function App() {
           <h2 className="content__title">Все пиццы</h2>
           <div className="content__items">
             <PizzaBlock title="Чизбургер-пицца" price="395" />
-						<PizzaBlock title="Tema-пицца" price="675" />
+            <PizzaBlock title="Tema-пицца" price="675" />
           </div>
         </div>
       </div>
