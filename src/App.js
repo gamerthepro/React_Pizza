@@ -9,13 +9,18 @@ import './scss/app.scss';
 
 function App() {
   const [pizzaItem, setPizzaItem] = React.useState([]);
-  fetch('https://635e546e03d2d4d47aec6160.mockapi.io/Items')
-    .then((res) => {
-      return res.json();
-    })
-    .then((arr) => {
-      setPizzaItem(arr);
-    });
+  React.useEffect(() => {
+    fetch('https://635e546e03d2d4d47aec6160.mockapi.io/Items')
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setPizzaItem(data);
+      })
+      .catch((err) => {
+        console.log(err('что-то пощло не так'));
+      });
+  }, []);
 
   return (
     <div className="wrapper">
